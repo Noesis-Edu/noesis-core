@@ -1,0 +1,33 @@
+.fraction-shape {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  text-align: center;
+}
+
+.fraction-shape__visual {
+  margin-bottom: 16px;
+}
+
+.fraction-shape__bar {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+}
+
+.fraction-shape__bar span {
+  height: 32px;
+  border-radius: 4px;
+  background: #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+.fraction-shape__bar span.filled {
+  background: #34d399;
+}
+
+.fraction-shape__circle svg {
+  width: 180px;
+  height: 180px;
+}

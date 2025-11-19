@@ -1,0 +1,17 @@
+.progress-indicator {
+  width: 100%;
+}
+
+.progress-indicator__track {
+  height: 8px;
+  width: 100%;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.progress-indicator__fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6);
+  transition: width 0.2s ease;
+}

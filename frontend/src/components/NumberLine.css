@@ -1,0 +1,28 @@
+.number-line {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.number-line__label {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.number-line input[type='range'] {
+  width: 100%;
+}
+
+.number-line__ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.number-line__value {
+  margin-top: 12px;
+  font-weight: 600;
+}

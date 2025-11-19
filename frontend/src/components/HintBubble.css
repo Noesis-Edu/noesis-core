@@ -1,0 +1,19 @@
+.hint-bubble {
+  background: #ecfdf5;
+  border-left: 4px solid #10b981;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.hint-bubble__close {
+  background: transparent;
+  font-size: 18px;
+}
+
+.hint-bubble p {
+  margin: 4px 0 0;
+}

@@ -1,0 +1,49 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id         String   @id @default(uuid())
+  createdAt  DateTime @default(now())
+  events     Event[]
+  learner    LearnerState?
+}
+
+enum EventType {
+  step_start
+  step_end
+  answer_submitted
+  hint_requested
+  hint_shown
+  representation_switched
+}
+
+model Event {
+  id        String    @id @default(uuid())
+  session   Session   @relation(fields: [sessionId], references: [id])
+  sessionId String
+  eventType EventType
+  payload   Json
+  createdAt DateTime  @default(now())
+
+  @@index([sessionId])
+}
+
+model LearnerState {
+  id                String   @id @default(uuid())
+  session           Session  @relation(fields: [sessionId], references: [id])
+  sessionId         String   @unique
+  conceptId         String
+  mastery           Float    @default(0)
+  errorPatterns     String[] @default([])
+  bestRepresentation String?
+  hintUsageRate     Float    @default(0)
+  avgDwellTime      Float    @default(0)
+  updatedAt         DateTime @updatedAt
+  createdAt         DateTime @default(now())
+}
