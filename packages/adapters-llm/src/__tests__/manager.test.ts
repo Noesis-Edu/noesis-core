@@ -81,8 +81,8 @@ describe('LLMManager', () => {
       new LLMManager();
 
       expect(consoleSpy).toHaveBeenCalled();
-      const logCalls = consoleSpy.mock.calls.map((c) => c.join(' '));
-      expect(logCalls.some((c) => c.includes('[LLM]'))).toBe(true);
+      const logCalls = consoleSpy.mock.calls.map((c: unknown[]) => c.join(' '));
+      expect(logCalls.some((c: string) => c.includes('[LLM]'))).toBe(true);
     });
   });
 

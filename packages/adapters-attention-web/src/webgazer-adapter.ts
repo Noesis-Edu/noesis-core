@@ -14,7 +14,7 @@ interface WebGazerPrediction {
 }
 
 interface WebGazerInstance {
-  setGazeListener(callback: (data: WebGazerPrediction | null, elapsedTime: number) => void): WebGazerInstance;
+  setGazeListener(callback: (data: WebGazerPrediction | null, _elapsedTime: number) => void): WebGazerInstance;
   clearGazeListener(): WebGazerInstance;
   begin(): Promise<WebGazerInstance>;
   end(): void;
@@ -92,7 +92,7 @@ export class WebGazerAdapter {
       await this.webgazer.begin();
 
       // Set up gaze listener
-      this.webgazer.setGazeListener((data: WebGazerPrediction | null, elapsedTime: number) => {
+      this.webgazer.setGazeListener((data: WebGazerPrediction | null, _elapsedTime: number) => {
         if (data) {
           this.predictionCount++;
           const gazeData: GazeData = {

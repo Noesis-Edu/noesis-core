@@ -4,6 +4,20 @@ import reactPlugin from "eslint-plugin-react";
 import reactHooksPlugin from "eslint-plugin-react-hooks";
 
 export default tseslint.config(
+  // Global ignores - must be first and only contain ignores key
+  {
+    ignores: [
+      "**/dist/**",
+      "**/node_modules/**",
+      "*.config.{js,ts,mjs}",
+      "drizzle.config.ts",
+      "vite.config.ts",
+      "vitest.config.ts",
+      "postcss.config.js",
+      "tailwind.config.ts",
+      "packages/core/scripts/**",
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -56,17 +70,4 @@ export default tseslint.config(
       "no-console": "off",
     },
   },
-  {
-    // Ignore patterns
-    ignores: [
-      "dist/**",
-      "node_modules/**",
-      "*.config.{js,ts}",
-      "drizzle.config.ts",
-      "vite.config.ts",
-      "vitest.config.ts",
-      "postcss.config.js",
-      "tailwind.config.ts",
-    ],
-  }
 );

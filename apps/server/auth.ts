@@ -19,6 +19,7 @@ declare module "express-session" {
 
 // Extend Express Request to include user
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Express {
     interface User {
       id: number;
@@ -199,7 +200,7 @@ function registerAuthRoutes(app: Express): void {
       const hasUppercase = /[A-Z]/.test(password);
       const hasLowercase = /[a-z]/.test(password);
       const hasDigit = /[0-9]/.test(password);
-      const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+      const hasSpecial = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password);
 
       if (!hasUppercase || !hasLowercase || !hasDigit || !hasSpecial) {
         return res.status(400).json(createError(

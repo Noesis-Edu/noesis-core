@@ -497,7 +497,7 @@ export function createDeterministicEngine(
   config: CoreEngineConfig = {},
   startTime: number = 0
 ): NoesisCoreEngineImpl {
-  let currentTime = startTime;
+  const currentTime = startTime;
   let eventCounter = 0;
 
   const deterministicClock: ClockFn = () => currentTime;

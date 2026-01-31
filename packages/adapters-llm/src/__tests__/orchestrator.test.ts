@@ -44,7 +44,7 @@ describe('Orchestrator', () => {
     it('should not log when debug mode is disabled', () => {
       new Orchestrator('test-key', false);
 
-      const orchestratorLogs = consoleSpy.mock.calls.filter((call) =>
+      const orchestratorLogs = consoleSpy.mock.calls.filter((call: unknown[]) =>
         String(call[0]).includes('[Orchestrator]')
       );
       expect(orchestratorLogs.length).toBe(0);
@@ -363,8 +363,8 @@ describe('Orchestrator', () => {
         learnerState: { timestamp: Date.now() },
       });
 
-      const logCalls = consoleSpy.mock.calls.map((c) => c.join(' '));
-      expect(logCalls.some((c) => c.includes('Getting next step'))).toBe(true);
+      const logCalls = consoleSpy.mock.calls.map((c: unknown[]) => c.join(' '));
+      expect(logCalls.some((c: string) => c.includes('Getting next step'))).toBe(true);
     });
 
     it('should log API response when debug enabled', async () => {
@@ -379,8 +379,8 @@ describe('Orchestrator', () => {
         learnerState: { timestamp: Date.now() },
       });
 
-      const logCalls = consoleSpy.mock.calls.map((c) => c.join(' '));
-      expect(logCalls.some((c) => c.includes('Received recommendation'))).toBe(
+      const logCalls = consoleSpy.mock.calls.map((c: unknown[]) => c.join(' '));
+      expect(logCalls.some((c: string) => c.includes('Received recommendation'))).toBe(
         true
       );
     });
@@ -394,8 +394,8 @@ describe('Orchestrator', () => {
         learnerState: { timestamp: Date.now() },
       });
 
-      const logCalls = consoleSpy.mock.calls.map((c) => c.join(' '));
-      expect(logCalls.some((c) => c.includes('Error getting next step'))).toBe(
+      const logCalls = consoleSpy.mock.calls.map((c: unknown[]) => c.join(' '));
+      expect(logCalls.some((c: string) => c.includes('Error getting next step'))).toBe(
         true
       );
     });
@@ -412,7 +412,7 @@ describe('Orchestrator', () => {
         learnerState: { timestamp: Date.now() },
       });
 
-      const orchestratorLogs = consoleSpy.mock.calls.filter((call) =>
+      const orchestratorLogs = consoleSpy.mock.calls.filter((call: unknown[]) =>
         String(call[0]).includes('[Orchestrator]')
       );
       expect(orchestratorLogs.length).toBe(0);

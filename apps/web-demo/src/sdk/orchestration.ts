@@ -1,9 +1,8 @@
-import { 
-  OrchestratorRequest, 
+import {
+  OrchestratorRequest,
   OrchestratorResponse,
   EngagementRequest,
   EngagementResponse,
-  LearnerState 
 } from './types';
 
 export class Orchestrator {

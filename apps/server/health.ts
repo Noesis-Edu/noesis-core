@@ -144,8 +144,8 @@ export function setupHealthRoutes(app: Express): void {
     };
 
     try {
-      const llm = getLLMManager();
-      checks.llm = true; // LLM manager initialized successfully
+      getLLMManager(); // Verify LLM manager can be initialized
+      checks.llm = true;
     } catch {
       checks.llm = false;
     }
@@ -165,7 +165,7 @@ export function setupHealthRoutes(app: Express): void {
    * Use this for monitoring dashboards (restricted to internal access in production)
    */
   app.get('/health', requireInternalAccess, async (_req: Request, res: Response) => {
-    const startCheck = Date.now();
+    const _startCheck = Date.now(); // Available for timing if needed
 
     const [llmCheck, memoryCheck, eventLoopCheck] = await Promise.all([
       checkLLMProvider(),
